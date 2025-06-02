@@ -12,58 +12,35 @@ const tomorrow = formattedDate(
 );
 
 describe("Todo suite", () => {
-  //beforeAll(() => {
-  // const dateToday = new Date();
-  //    add({
-  //    title: "Submit assignment",
-  //  dueDate: new Date(
-  //  new Date().setDate(dateToday.getDate() - 1),
-  ///      ).toISOString(),
-  //   completed: false,
-  // });
-  // });
-
-  test("Add test", () => {
-    let x = all.length;
-    expect(x).toBe(0);
+  beforeAll(() => {
     add({
       title: "Submit assignment",
       dueDate: today,
       completed: false,
     });
-    expect(all.length).toBe(x + 1);
+  });
+
+  test("Add test", () => {
+    add({
+      title: "Submit assignment",
+      dueDate: yesterday,
+      completed: false,
+    });
+    expect(all.length).toBe(2);
   });
 
   test("mark test", () => {
-    add({
-      title: "Submit second assignment",
-      dueDate: today,
-      completed: false,
-    });
     expect(all[0].completed).toBe(false);
     markAsComplete(0);
     expect(all[0].completed).toBe(true);
   });
 
   test("overdue test", () => {
-    expect(overdue().length).toBe(0);
-    add({
-      title: "Submit third assignment",
-      dueDate: yesterday,
-      completed: false,
-    });
     expect(overdue().length).toBe(1);
   });
 
   test("dueToday test", () => {
-    console.log(dueToday());
-    expect(dueToday().length).toBe(2);
-    add({
-      title: "Submit fourth assignment",
-      dueDate: today,
-      completed: false,
-    });
-    expect(dueToday().length).toBe(3);
+    expect(dueToday().length).toBe(1);
   });
 
   test("dueLater test", () => {
