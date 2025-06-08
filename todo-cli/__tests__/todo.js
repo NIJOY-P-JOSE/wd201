@@ -16,7 +16,7 @@ describe("Todo suite", () => {
     all.length = 0;
   });
 
-  test("Add test", () => {
+  test("should add new todo", () => {
     add({
       title: "Submit assignment",
       dueDate: today,
