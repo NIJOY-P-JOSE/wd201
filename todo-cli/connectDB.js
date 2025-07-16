@@ -9,7 +9,6 @@ const sequelize = new Sequelize(database, username, password, {
   host: "localhost",
   dialect: "postgres",
 });
-
 // sequelize
 //   .authenticate()
 //   .then(() => {
@@ -18,7 +17,6 @@ const sequelize = new Sequelize(database, username, password, {
 //   .catch((error) => {
 //     console.error("Unable to connect to the database:", error);
 //   });
-
 const connect = async () => {
   return sequelize.authenticate();
 };
